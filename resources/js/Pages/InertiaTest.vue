@@ -8,4 +8,5 @@ Inertiaテストです。<br>
 <Link href="/">Link経由</Link><br>
 <!-- 名前付きルートを指定できる -->
 <Link :href="route('inertia.index')">名前付きルートの確認</Link><br>
+<Link :href="route('inertia.show', { id: 50 })">ルートパラメータのテスト</Link>
 </template>
