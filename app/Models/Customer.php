@@ -8,4 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'kana',
+        'tel',
+        'email',
+        'postcode',
+        'address',
+        'birthday',
+        'gender',
+        'memo'
+    ];
+
+    public function scopeSerchCustomers($query, $input = null) {
+        if(
+            Customer::where('kana', 'like', $input . '%')
+            ->orWhere('tel', 'like', $input . '%')
+            ->exists()
+        ) {
+            return $query->where('kana', 'like', $input . '%')
+            ->orWhere('tel', 'like', $input . '%');
+        }
+    }
 }
