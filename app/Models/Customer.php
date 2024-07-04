@@ -22,7 +22,7 @@ class Customer extends Model
         'memo'
     ];
 
-    public function scopeSerchCustomers($query, $input = null) {
+    public function scopeSearchCustomers($query, $input = null) {
         if(
             Customer::where('kana', 'like', $input . '%')
             ->orWhere('tel', 'like', $input . '%')
