@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 import { onMounted, reactive, ref, computed } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
 import dayjs from 'dayjs';
@@ -108,7 +108,13 @@ onMounted(() => {
                                                 </div>
                                             </div>
                                             <div class="p-2 w-full mt-8">
-                                                <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">登録する</button>
+                                                <Link as="button"
+                                                    v-if="order[0].status == true"
+                                                    :href="route('purchases.edit', { purchase: order[0].id } )"
+                                                    class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+                                                >
+                                                編集する
+                                                </Link>
                                             </div>
                                         </div>
                                     </div>

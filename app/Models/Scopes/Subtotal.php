@@ -20,6 +20,7 @@ class Subtotal implements Scope
         $sql = 'SELECT
                 purchases.id AS id
                 , item_purchase.id AS pivot_id
+                , customers.id AS customer_id
                 , customers.name AS customer_name
                 , items.price * item_purchase.quantity AS subtotal
                 , items.id AS item_id
